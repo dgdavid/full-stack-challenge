@@ -1,0 +1,4 @@
+project=main
+architecture=container
+test=rspec
+template=erb
