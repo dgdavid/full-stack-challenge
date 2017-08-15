@@ -20,7 +20,8 @@ module Api
       #
       load_paths << [
         'controllers',
-        'views'
+        'views',
+        'interactors'
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
