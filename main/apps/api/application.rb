@@ -1,5 +1,6 @@
 require 'hanami/helpers'
 require 'hanami/assets'
+require 'net/http'
 
 module Api
   class Application < Hanami::Application
@@ -117,7 +118,8 @@ module Api
 
       # The layout to be used by all views
       #
-      layout :application # It will load Api::Views::ApplicationLayout
+      # layout :application # It will load Api::Views::ApplicationLayout
+      layout false
 
       # The relative path to templates
       #
