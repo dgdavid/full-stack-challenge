@@ -4,14 +4,9 @@ module Front::Controllers::City
 
     expose :city
 
-    # @todo Move default city value to a configuration file
-    def initialize
-      @default_city = 'Berlin'
-    end
-
     # @todo Move API uri to a configuration file
     def call(params)
-      uri = uri_for(params[:city] || @default_city)
+      uri = uri_for(params[:city] || ENV['DEFAULT_CITY'])
 
       @city = JSON.parse(Net::HTTP.get_response(uri).body)
     end
@@ -19,7 +14,7 @@ module Front::Controllers::City
     private
 
     def uri_for(city_name)
-      URI("http://localhost:2300/api/city/#{city_name}")
+      URI("#{ENV['API_BASE_URI']}/api/city/#{city_name}")
     end
   end
 end

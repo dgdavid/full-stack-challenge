@@ -11,17 +11,21 @@ class WeatherInformationFetcher
 
   # Creates a new instance and prepares the URI for request
   #
-  # @todo Allow to receive more params
-  #   Units and APPID, for example; maybe in a single Hash
+  # @see http://openweathermap.org/current OpenWeatherMap API doc
   #
-  # @param city_name [String]
-  def initialize(city_name)
-    @uri = URI(base_uri)
-    @uri.query = URI.encode_www_form({
-      q: city_name,
-      units: :metric,
-      APPID: 'c22c1e116a64e88c7bf837212af83243' # FIXME: move to a configuration file
-    })
+  # @param [Hash] opts the options to build a service call
+  # @option opts [String] :city Name of city to search
+  # @option opts [String] :unit Desired unit for temperature
+  # @option opts [String] :appid OpenWeatherMap API key
+  def initialize(opts = {})
+    query = {
+      q: opts[:city],
+      units: opts[:unit] || ENV['OWM_DEFAULT_UNIT'],
+      APPID: opts[:appid] || ENV['OWM_APPID']
+    }
+
+    @uri = URI(ENV['OWM_BASE_URI'])
+    @uri.query = URI.encode_www_form(query.compact)
   end
 
   # Performs a request
@@ -33,11 +37,5 @@ class WeatherInformationFetcher
 
     @temperature = data['main']['temp']
     @condition_code = data['weather'][0]['icon']
-  end
-
-  private
-
-  def base_uri
-    'https://api.openweathermap.org/data/2.5'
   end
 end

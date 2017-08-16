@@ -8,7 +8,7 @@ RSpec.describe Front::Controllers::City::Show do
 
     it 'request city information for "Berlin"' do
       expect(Net::HTTP).to receive(:get_response)
-        .with(URI('http://localhost:2300/api/city/Berlin'))
+        .with(URI("#{ENV['API_BASE_URI']}/api/city/Berlin"))
         .and_return(OpenStruct.new(body: '{"name": "Berlin"}'))
 
       action.call(params)
@@ -20,7 +20,7 @@ RSpec.describe Front::Controllers::City::Show do
 
     it 'request city information for it' do
       expect(Net::HTTP).to receive(:get_response)
-        .with(URI('http://localhost:2300/api/city/Madrid'))
+        .with(URI("#{ENV['API_BASE_URI']}/api/city/Madrid"))
         .and_return(OpenStruct.new(body: '{"name": "Madrid"}'))
 
       action.call(params)

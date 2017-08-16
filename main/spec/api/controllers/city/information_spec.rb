@@ -30,7 +30,7 @@ RSpec.describe Api::Controllers::City::Information do
         .and_return(OpenStruct.new(temperature: 9, condition_code: '10d'))
 
       expect(WeatherInformationFetcher).to receive(:new)
-        .with('Berlin')
+        .with({ city: 'Berlin' })
         .and_return(weather_information_fetcher)
 
       action.call(params)
@@ -41,7 +41,7 @@ RSpec.describe Api::Controllers::City::Information do
         .and_return(OpenStruct.new(name: 'Berlin', currency: 'EUR'))
 
       expect(CountryInformationFetcher).to receive(:new)
-        .with('Berlin')
+        .with({ city: 'Berlin' })
         .and_return(country_information_fetcher)
 
       action.call(params)

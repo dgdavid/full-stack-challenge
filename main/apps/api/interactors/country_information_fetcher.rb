@@ -17,9 +17,10 @@ class CountryInformationFetcher
   #   receive the code or country name, since we could to retrieve it from
   #   WeatherInformationFetcher
   #
-  # @param city_name [String]
-  def initialize(city_name)
-    @uri = URI("#{base_uri}/#{city_name}")
+  # @param [Hash] opts the options to build a service call
+  # @option opts [String] :city Name of city to search
+  def initialize(opts = {})
+    @uri = URI("#{ENV['RC_BASE_URI']}/#{opts[:city]}")
   end
 
   # Performs a request
@@ -33,11 +34,5 @@ class CountryInformationFetcher
 
     @name = data['name']
     @currency = data['currencies'].first['code']
-  end
-
-  private
-
-  def base_uri
-    'https://restcountries.eu/rest/v2/capital'
   end
 end

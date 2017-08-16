@@ -13,8 +13,8 @@ module Api::Controllers::City
 
       city_name = params[:city]
 
-      weather = WeatherInformationFetcher.new(city_name).call
-      country = CountryInformationFetcher.new(city_name).call
+      weather = WeatherInformationFetcher.new(city: city_name).call
+      country = CountryInformationFetcher.new(city: city_name).call
 
       @city = {
         name: city_name,
