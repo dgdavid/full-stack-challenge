@@ -12,3 +12,14 @@ services:
       - 2300:2300
     volumes:
       - ./main:/app
+  preact_client:
+    build:
+      context: .
+      dockerfile: ./preact_client/Dockerfile
+    container_name: preact_client
+    working_dir: /app
+    command: yarn start
+    ports:
+      - 8080:8080
+    volumes:
+      - ./preact_client:/app
