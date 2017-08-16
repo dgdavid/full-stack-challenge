@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./main/Dockerfile
     container_name: main
     working_dir: /app
     command: bundle exec hanami server

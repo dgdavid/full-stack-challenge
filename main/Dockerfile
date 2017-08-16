@@ -3,12 +3,12 @@ FROM ruby:latest
 RUN mkdir -p /app
 WORKDIR /app
 
-ADD main/Gemfile /app/Gemfile
-ADD main/Gemfile.lock /app/Gemfile.lock
+ADD Gemfile /app/Gemfile
+ADD Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 
-ADD main /app
+ADD . /app
 
 EXPOSE 2300
 
