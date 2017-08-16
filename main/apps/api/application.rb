@@ -98,6 +98,7 @@ module Api
       # Argument: A symbol representation of a mime type, defaults to :html
       #
       # default_response_format :html
+      default_response_format :json
 
       # HTTP Body parsers
       # Parse non GET responses body for a specific mime type
