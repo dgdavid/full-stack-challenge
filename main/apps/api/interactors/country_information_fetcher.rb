@@ -1,9 +1,9 @@
 require 'hanami/interactor'
 
-# Fetch information for a country of given city name from
+# Fetch information for a country from its code through
 # {https://restcountries.eu REST Countries} service
 #
-# Only expose `name` and `currency` (the first occurence of currencies)
+# Expose `name` and `currency` (the first occurence of currencies)
 class CountryInformationFetcher
   include Hanami::Interactor
 
@@ -11,16 +11,10 @@ class CountryInformationFetcher
 
   # Creates a new instance and prepares the URI for request
   #
-  # @todo Search by code or country name
-  #   For now, it will to search by capital city, which is assumed is being
-  #   received as a city name param. However, in the future it is wanted to
-  #   receive the code or country name, since we could to retrieve it from
-  #   WeatherInformationFetcher
-  #
   # @param [Hash] opts the options to build a service call
-  # @option opts [String] :city Name of city to search
+  # @option opts [String] :code ISO 3166-1 2-letter 3-letter country code
   def initialize(opts = {})
-    @uri = URI("#{ENV['RC_BASE_URI']}/#{opts[:city]}")
+    @uri = URI("#{ENV['RC_BASE_URI']}/alpha/#{opts[:code]}")
   end
 
   # Performs a request
@@ -28,7 +22,7 @@ class CountryInformationFetcher
   # @todo Handle unexpected API responses
   def call
     response = Net::HTTP.get_response(@uri)
-    data = JSON.parse(response.body)[0]
+    data = JSON.parse(response.body)
 
     return if data.nil?
 

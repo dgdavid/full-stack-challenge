@@ -3,11 +3,11 @@ require 'hanami/interactor'
 # Fetch information for a given city name from
 # {https://openweathermap.org OpenWeatherMap} service
 #
-# Only expose `temperature` and `condition_code`
+# Expose `condition_code` (aka weather icon), `country_code` and `temperature`
 class WeatherInformationFetcher
   include Hanami::Interactor
 
-  expose :condition_code, :temperature
+  expose :condition_code, :country_code, :temperature
 
   # Creates a new instance and prepares the URI for request
   #
@@ -35,7 +35,8 @@ class WeatherInformationFetcher
 
     return unless data['cod'].eql?(200) # TODO: handle API errors
 
-    @temperature = data['main']['temp']
     @condition_code = data['weather'][0]['icon']
+    @country_code = data['sys']['country']
+    @temperature = data['main']['temp']
   end
 end

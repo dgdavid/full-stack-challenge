@@ -12,9 +12,8 @@ module Api::Controllers::City
       return unless params[:city]
 
       city_name = params[:city]
-
       weather = WeatherInformationFetcher.new(city: city_name).call
-      country = CountryInformationFetcher.new(city: city_name).call
+      country = CountryInformationFetcher.new(code: weather.country_code).call
 
       @city = {
         name: city_name,

@@ -24,10 +24,13 @@ RSpec.describe Api::Controllers::City::Information do
     let(:params) { Hash[city: 'Berlin'] }
     let(:weather_information_fetcher) { double("WeatherInformatinoFetcher") }
     let(:country_information_fetcher) { double("CountryInformatinoFetcher") }
+    let(:country_response) { OpenStruct.new(name: 'Berlin', currency: 'EUR') }
+    let(:weather_response) do
+      OpenStruct.new(condition_code: '10d', country_code: 'DE', temperature: 9)
+    end
 
     it 'request city weather information' do
-      allow(weather_information_fetcher).to receive(:call)
-        .and_return(OpenStruct.new(temperature: 9, condition_code: '10d'))
+      allow(weather_information_fetcher).to receive(:call) { weather_response }
 
       expect(WeatherInformationFetcher).to receive(:new)
         .with({ city: 'Berlin' })
@@ -37,11 +40,10 @@ RSpec.describe Api::Controllers::City::Information do
     end
 
     it 'request country information' do
-      allow(country_information_fetcher).to receive(:call)
-        .and_return(OpenStruct.new(name: 'Berlin', currency: 'EUR'))
+      allow(country_information_fetcher).to receive(:call) { country_response }
 
       expect(CountryInformationFetcher).to receive(:new)
-        .with({ city: 'Berlin' })
+        .with({ code: 'DE' })
         .and_return(country_information_fetcher)
 
       action.call(params)
