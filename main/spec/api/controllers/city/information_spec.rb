@@ -56,5 +56,4 @@ RSpec.describe Api::Controllers::City::Information do
       end
     end
   end
-
 end

@@ -21,7 +21,7 @@ class WeatherInformationFetcher
     query = {
       q: opts[:city],
       units: opts[:unit] || ENV['OWM_DEFAULT_UNIT'],
-      APPID: opts[:appid] || ENV['OWM_APPID']
+      appid: opts[:appid] || ENV['OWM_APPID']
     }
 
     @uri = URI(ENV['OWM_BASE_URI'])
@@ -33,7 +33,7 @@ class WeatherInformationFetcher
     response = Net::HTTP.get_response(@uri)
     data = JSON.parse(response.body)
 
-    return if data['cod'] # TODO: handle API errors
+    return unless data['cod'].eql?(200) # TODO: handle API errors
 
     @temperature = data['main']['temp']
     @condition_code = data['weather'][0]['icon']
