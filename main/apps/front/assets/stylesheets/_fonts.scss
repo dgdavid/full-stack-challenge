@@ -1,4 +1,28 @@
 @font-face {
+	font-family: 'Cabin';
+	src: url('Cabin-Regular.eot');
+	src: local('Cabin Regular'), local('Cabin-Regular'),
+		url('Cabin-Regular.eot?#iefix') format('embedded-opentype'),
+		url('Cabin-Regular.woff') format('woff'),
+		url('Cabin-Regular.ttf') format('truetype'),
+		url('Cabin-Regular.svg#Cabin-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cabin';
+	src: url('Cabin-Bold.eot');
+	src: local('Cabin Bold'), local('Cabin-Bold'),
+		url('Cabin-Bold.eot?#iefix') format('embedded-opentype'),
+		url('Cabin-Bold.woff') format('woff'),
+		url('Cabin-Bold.ttf') format('truetype'),
+		url('Cabin-Bold.svg#Cabin-Bold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
   font-family: 'CoyaChallengeIcons';
   src: url('/assets/coya-challenge.eot'); /* IE9 Compat Modes */
   src: url('/assets/coya-challenge.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
