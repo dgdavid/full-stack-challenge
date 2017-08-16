@@ -14,7 +14,7 @@ module Front::Controllers::City
     private
 
     def uri_for(city_name)
-      URI("#{ENV['API_BASE_URI']}/api/city/#{city_name}")
+      URI("#{ENV['API_BASE_URI']}/api/city/#{URI::escape(city_name)}")
     end
   end
 end
