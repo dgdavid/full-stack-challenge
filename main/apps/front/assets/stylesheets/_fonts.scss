@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'CoyaChallengeIcons';
+  src: url('/assets/coya-challenge.eot'); /* IE9 Compat Modes */
+  src: url('/assets/coya-challenge.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/coya-challenge.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/coya-challenge.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/assets/coya-challenge.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

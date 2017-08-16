@@ -1,15 +1,15 @@
 <div class="wrapper">
-  <i class="weather-condition-icon"></i>
+  <i class="weather-condition c<%= city['condition_code'] %>"></i>
 
   <div class="city-information">
-    <span><%= city['name'] %>, </span>
-    <span><%= city['country'] %></span>
+    <span class='city-name'><%= city['name'] %>, </span>
+    <span class='country-name'><%= city['country'] %></span>
   </div>
 
   <div class="temperature"><%= city['temperature'] %> deg</div>
 
   <div class="currency">
-    <span>Currency: </span>
+    <span class="caption">Currency: </span>
     <span><%= city['currency'] %></span>
   </div>
 </div>

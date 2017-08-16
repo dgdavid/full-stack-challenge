@@ -1,0 +1,37 @@
+body {
+  background: url('/assets/berlin_skyline.svg') no-repeat bottom right fixed;
+  background-size: auto 60vh;
+  background-color: $soft-gray;
+  padding: 20px;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-information {
+  color: $gray;
+  font-size: map-get($font-size, city);
+  order: -1;
+  text-align: left;
+
+  .city-name {
+    font-weight: bold;
+  }
+}
+
+.temperature {
+  color: $green;
+  font-size: map-get($font-size, temperature);
+}
+
+.currency {
+  color: $gray;
+  font-size: map-get($font-size, currency);
+
+  .caption {
+    font-weight: bold;
+  }
+}
