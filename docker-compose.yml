@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: main
+    working_dir: /app
+    command: bundle exec hanami server
+    ports:
+      - 2300:2300
+    volumes:
+      - ./main:/app
