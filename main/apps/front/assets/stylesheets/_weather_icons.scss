@@ -3,6 +3,8 @@ i.weather-condition {
   font-family: 'CoyaChallengeIcons';
   font-style: normal;
   height: $weather-icon-size;
+  margin-top: 10px;
+  margin-bottom: 20px;
 
   &:before {
     color: $green;
