@@ -1,5 +1,6 @@
 require 'hanami/helpers'
 require 'hanami/assets'
+require 'net/http'
 
 module Front
   class Application < Hanami::Application
