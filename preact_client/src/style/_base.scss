@@ -1,0 +1,40 @@
+body {
+  background: url('/assets/images/berlin_skyline.svg') no-repeat bottom right fixed;
+  background-color: $background-color;
+  background-size:  auto 60vh;
+  color: $secondary-color;
+  font-family: Cabin, 'Helvetica Neue', arial, sans-serif;
+  text-align: center;
+}
+
+#app {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-information {
+  font-size: $medium;
+  order: -1;
+  text-align: left;
+
+  .city-name {
+    font-weight: bold;
+  }
+}
+
+.temperature {
+  color: $main-color;
+  font-size: $large;
+}
+
+.currency {
+  font-size: $small;
+
+  .caption {
+    font-weight: bold;
+  }
+}

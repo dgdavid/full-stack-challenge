@@ -1,0 +1,74 @@
+i.weather-condition {
+  display: inline-block;
+  font-family: 'CoyaChallengeIcons';
+  font-style: normal;
+  height: $huge;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  &:before {
+    color: $main-color;
+    font-size: $huge;
+    padding: 20px;
+  }
+
+  &.c01d:before {
+    content: "\e915";
+  }
+
+  &.c01n:before {
+    content: "\e911";
+  }
+
+  &.c02d:before,
+  &.c03d:before,
+  &.c02n:before,
+  &.c03n:before {
+    content: "\e900";
+  }
+
+  &.c04d:before,
+  &.c04n:before {
+    content: "\e904";
+  }
+
+  &.c09d:before {
+    content: "\e909";
+  }
+
+  &.c09n:before {
+    content: "\e908";
+  }
+
+  &.c10d:before {
+    content: "\e910";
+  }
+
+  &.c10n:before {
+    content: "\e90f";
+  }
+
+  &.c11d:before {
+    content: "\e90c";
+  }
+
+  &.c11n:before {
+    content: "\e90b";
+  }
+
+  &.c13d:before {
+    content: "\e90e";
+  }
+
+  &.c13n:before {
+    content: "\e90d";
+  }
+
+  &.c50d:before {
+    content: "\e903";
+  }
+
+  &.c50n:before {
+    content: "\e902";
+  }
+}
