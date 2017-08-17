@@ -3,8 +3,8 @@ FROM ruby:latest
 RUN mkdir -p /app
 WORKDIR /app
 
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
+ADD ./main/Gemfile /app/Gemfile
+ADD ./main/Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 
