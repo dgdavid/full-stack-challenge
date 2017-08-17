@@ -22,7 +22,7 @@ export default class CityInformation extends Component {
   componentWillMount() {
     this.setState({ name: this.props.name });
 
-    axios.get(`${config.apiUrl}/${this.props.name}`)
+    axios.get(encodeURI(`${config.apiUrl}/${this.props.name}`))
       .then(response => this.setState(response.data))
       .catch(error => {
         // Log error only in development mode
