@@ -5,8 +5,8 @@ WORKDIR /app
 
 RUN yarn global add preact-cli
 
-ADD package.json /app/package.json
-ADD yarn.lock /app/yarn.lock
+ADD ./preact_client/package.json /app/package.json
+ADD ./preact_client/yarn.lock /app/yarn.lock
 
 RUN yarn install
 
