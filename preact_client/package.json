@@ -8,10 +8,24 @@
     "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
+    "lint": "eslint src",
     "test": "eslint src && preact test"
   },
   "eslintConfig": {
-    "extends": "eslint-config-synacor"
+    "extends": "eslint-config-synacor",
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "react/self-closing-comp": [
+        "error",
+        {
+          "component": true,
+          "html": false
+        }
+      ]
+    }
   },
   "devDependencies": {
     "eslint": "^4.4.1",
