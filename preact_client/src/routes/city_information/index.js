@@ -2,6 +2,11 @@ import { h, Component } from 'preact';
 import axios from 'axios';
 import config from '../../config';
 
+import City from '../../components/city';
+import Currency from '../../components/currency';
+import Temperature from '../../components/temperature';
+import WeatherIcon from '../../components/weather_icon';
+
 /**
  * Component responsible to request and render information
  */
@@ -27,16 +32,10 @@ export default class CityInformation extends Component {
   render({}, { name, country, currency, temperature, condition_code }) {
     return (
       <div class="wrapper">
-        <i class={`weather-condition c${condition_code}`}></i>
-        <div class="city-information">
-          <span class="city-name">{ name }, </span>
-          <span class="country-name">{ country }</span>
-        </div>
-        <div class="temperature">{ temperature } deg</div>
-        <div class="currency">
-          <span class="caption">Currency: </span>
-          <span>{ currency }</span>
-        </div>
+        <WeatherIcon code={condition_code} />
+        <City name={name} country={country} />
+        <Temperature value={temperature} />
+        <Currency code={currency} />
       </div>
     );
   }
