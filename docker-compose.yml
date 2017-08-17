@@ -23,3 +23,14 @@ services:
       - 8080:8080
     volumes:
       - ./preact_client:/app
+  preact_standalone:
+    build:
+      context: .
+      dockerfile: ./preact_standalone/Dockerfile
+    container_name: preact_standalone
+    working_dir: /app
+    command: yarn start
+    ports:
+      - 9090:9090
+    volumes:
+      - ./preact_standalone:/app
