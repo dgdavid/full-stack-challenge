@@ -1,7 +1,9 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import config from '../config';
 
 import CityInformation from '../routes/city_information';
+
 
 export default class App extends Component {
 
@@ -19,7 +21,7 @@ export default class App extends Component {
     return (
       <div id="app">
         <Router onChange={this.handleRoute}>
-          <CityInformation path="/" name="Berlin" />
+          <CityInformation path="/" name={config.defaultCity} />
           <CityInformation path="/:name" />
         </Router>
       </div>
