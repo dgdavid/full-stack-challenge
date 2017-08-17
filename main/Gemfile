@@ -5,6 +5,8 @@ gem 'hanami',       '~> 1.0'
 
 gem 'sass'
 
+gem 'rack-cors'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
