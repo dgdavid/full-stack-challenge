@@ -3,13 +3,11 @@ i.weather-condition {
   font-family: 'CoyaChallengeIcons';
   font-style: normal;
   height: $weather-icon-size;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 
   &:before {
     color: $green;
     font-size: $weather-icon-size;
-    padding: 20px;
   }
 
   &.c01d:before {
