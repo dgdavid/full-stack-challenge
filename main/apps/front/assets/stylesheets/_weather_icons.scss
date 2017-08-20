@@ -2,12 +2,12 @@ i.weather-condition {
   display: inline-block;
   font-family: 'CoyaChallengeIcons';
   font-style: normal;
-  height: $weather-icon-size;
+  height: $huge;
   margin-top: 20px;
 
   &:before {
-    color: $green;
-    font-size: $weather-icon-size;
+    color: $main-color;
+    font-size: $huge;
   }
 
   &.c01d:before {

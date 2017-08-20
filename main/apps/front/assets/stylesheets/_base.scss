@@ -5,7 +5,8 @@ html {
 body {
   background: url('/assets/berlin_skyline.svg') no-repeat bottom right fixed;
   background-size: auto 60vh;
-  background-color: $soft-gray;
+  background-color: $background-color;
+  color: $secondary-color;
   font-family: Cabin;
   padding: 20px;
   text-align: center;
@@ -17,8 +18,7 @@ body {
 }
 
 .city-information {
-  color: $gray;
-  font-size: map-get($font-size, city);
+  font-size: $medium;
   order: -1;
   text-align: left;
 
@@ -28,13 +28,12 @@ body {
 }
 
 .temperature {
-  color: $green;
-  font-size: map-get($font-size, temperature);
+  color: $main-color;
+  font-size: $large;
 }
 
 .currency {
-  color: $gray;
-  font-size: map-get($font-size, currency);
+  font-size: $small;
 
   .caption {
     font-weight: bold;

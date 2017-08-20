@@ -1,11 +1,8 @@
-$green: #00B38B;
-$gray: #878787;
-$soft-gray: #FCFCFC;
+$main-color: #00B38B;
+$secondary-color: #878787;
+$background-color: #FCFCFC;
 
-$weather-icon-size: 200px;
-
-$font-size: (
-  city: 28px,
-  currency: 24px,
-  temperature: 33px
-)
+$small: 24px;
+$medium: 28px;
+$large: 33px;
+$huge: 200px;
