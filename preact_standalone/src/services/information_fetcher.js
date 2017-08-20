@@ -1,5 +1,6 @@
-import config from '../config';
 import axios from 'axios';
+import config from '../config';
+import { objectToQueryString } from '../utils';
 
 /**
  * Service responsible to fetch information for city
@@ -52,7 +53,7 @@ export default class InformationFetcher {
    */
   getWeatherInformation(city) {
     const options = { q: city, ...config.opw.options };
-    const url = `${config.opw.url}?q=${city}&${this.queryStringFor(options)}`;
+    const url = `${config.opw.url}?q=${city}&${objectToQueryString(options)}`;
 
     return axios.get(encodeURI(url))
       .then(response => response.data);
@@ -70,16 +71,5 @@ export default class InformationFetcher {
 
     return axios.get(encodeURI(url))
       .then(response => response.data);
-  }
-
-  /**
-   * Build a query string with given params
-   *
-   * @param {Object} params
-   *
-   * @return {string} a query string
-   */
-  queryStringFor(params) {
-    return Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
   }
 }
