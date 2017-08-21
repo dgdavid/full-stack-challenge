@@ -23,6 +23,7 @@ services:
       - 8080:8080
     volumes:
       - ./preact_client:/app
+      - /app/node_modules
   preact_standalone:
     build:
       context: .
@@ -34,3 +35,4 @@ services:
       - 9090:9090
     volumes:
       - ./preact_standalone:/app
+      - /app/node_modules
