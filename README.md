@@ -35,9 +35,9 @@ It consists of four small, simple applications built on top of Ruby and
 JavaScript programming languages, using the [Hanami](http://hanamirb.org/)
 framework and [Preact](https://github.com/developit/preact) library.
 
-:exclamation: **Among others, they were included here the
-[Installation](#installation) and [Impressions](#impressions) sections
-requested.**
+:exclamation: **Among others, were included here the
+[Installation](#installation) and [Impressions](#impressions) requested
+sections.**
 
 ## Why those tools?
 
